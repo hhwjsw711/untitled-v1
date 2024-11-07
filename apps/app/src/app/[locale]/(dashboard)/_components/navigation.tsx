@@ -27,6 +27,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { LanguageSwitcher } from "./language-switcher";
 import { ThemeSwitcher } from "./theme-switcher";
+import { PLANS } from "@v1/backend/convex/schema";
 
 export function Navigation({
   preloadedUser,
@@ -75,7 +76,10 @@ export function Navigation({
                     {user?.name || ""}
                   </p>
                   <span className="flex h-5 items-center rounded-full bg-primary/10 px-2 text-xs font-medium text-primary/80">
-                    Free
+                    {(user.plan?.key &&
+                      user.plan.key.charAt(0).toUpperCase() +
+                        user.plan.key.slice(1)) ||
+                      "Free"}
                   </span>
                 </div>
                 <span className="flex flex-col items-center justify-center">
@@ -110,16 +114,20 @@ export function Navigation({
                 <Check className="h-[18px] w-[18px] stroke-[1.5px] text-primary/60" />
               </DropdownMenuItem>
 
-              <DropdownMenuSeparator className="mx-0 my-2" />
-              <DropdownMenuItem className="p-0 focus:bg-transparent">
-                <Button
-                  size="sm"
-                  className="w-full"
-                  onClick={() => router.push("/settings/billing")}
-                >
-                  Upgrade to PRO
-                </Button>
-              </DropdownMenuItem>
+              {user.plan?.key === PLANS.FREE && (
+                <>
+                  <DropdownMenuSeparator className="mx-0 my-2" />
+                  <DropdownMenuItem className="p-0 focus:bg-transparent">
+                    <Button
+                      size="sm"
+                      className="w-full"
+                      onClick={() => router.push("/settings/billing")}
+                    >
+                      Upgrade to PRO
+                    </Button>
+                  </DropdownMenuItem>
+                </>
+              )}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -128,7 +136,7 @@ export function Navigation({
           <a
             href="https://github.com/get-convex/v1/tree/main/docs"
             className={cn(
-              `${buttonVariants({ variant: "outline", size: "sm" })} group hidden h-8 gap-2 rounded-full bg-transparent px-2 pr-2.5 md:flex`,
+              `${buttonVariants({ variant: "outline", size: "sm" })} group hidden h-8 gap-2 rounded-full bg-transparent px-2 pr-2.5 md:flex`
             )}
           >
             <svg
@@ -180,7 +188,7 @@ export function Navigation({
 
               <DropdownMenuItem
                 className={cn(
-                  "group flex h-9 justify-between rounded-md px-2 hover:bg-transparent",
+                  "group flex h-9 justify-between rounded-md px-2 hover:bg-transparent"
                 )}
               >
                 <span className="w-full text-sm text-primary/60 group-hover:text-primary group-focus:text-primary">
@@ -191,7 +199,7 @@ export function Navigation({
 
               <DropdownMenuItem
                 className={cn(
-                  "group flex h-9 justify-between rounded-md px-2 hover:bg-transparent",
+                  "group flex h-9 justify-between rounded-md px-2 hover:bg-transparent"
                 )}
               >
                 <span className="w-full text-sm text-primary/60 group-hover:text-primary group-focus:text-primary">
@@ -220,13 +228,13 @@ export function Navigation({
         <div
           className={cn(
             "flex h-12 items-center border-b-2",
-            isDashboardPath ? "border-primary" : "border-transparent",
+            isDashboardPath ? "border-primary" : "border-transparent"
           )}
         >
           <Link
             href="/"
             className={cn(
-              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`
             )}
           >
             Dashboard
@@ -235,13 +243,13 @@ export function Navigation({
         <div
           className={cn(
             "flex h-12 items-center border-b-2",
-            isSettingsPath ? "border-primary" : "border-transparent",
+            isSettingsPath ? "border-primary" : "border-transparent"
           )}
         >
           <Link
             href="/settings"
             className={cn(
-              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`
             )}
           >
             Settings
@@ -250,13 +258,13 @@ export function Navigation({
         <div
           className={cn(
             "flex h-12 items-center border-b-2",
-            isBillingPath ? "border-primary" : "border-transparent",
+            isBillingPath ? "border-primary" : "border-transparent"
           )}
         >
           <Link
             href="/settings/billing"
             className={cn(
-              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`
             )}
           >
             Billing
