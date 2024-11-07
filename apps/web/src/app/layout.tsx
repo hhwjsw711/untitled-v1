@@ -15,10 +15,10 @@ const DepartureMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://v1-convex.vercel.app"),
-  title: "Create v1",
+  metadataBase: new URL("https://untitled.uno"),
+  title: "Untitled | Trust in Every Trade",
   description:
-    "A free, open-source starter kit for your next project, built with insights from Midday.",
+    "Untitled is a platform for Data Trading, IP Protection, and Future Security.",
 };
 
 export default function RootLayout({

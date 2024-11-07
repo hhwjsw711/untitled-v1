@@ -1,5 +1,6 @@
 import { AnimatedText } from "@/components/animated-text";
 import { CopyText } from "@/components/copy-text";
+import { Button } from "@v1/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -7,6 +8,7 @@ import {
   TooltipTrigger,
 } from "@v1/ui/tooltip";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -15,19 +17,12 @@ export default function Page() {
       <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent pointer-events-none -z-10" />
 
       <h1 className="font-departure text-[40px] md:text-[84px] relative z-10 text-center h-[120px] md:h-auto leading-tight">
-        <AnimatedText text="Production ready code" />
+        <AnimatedText text="Trust in Every Trade" />
       </h1>
 
       <p className="relative z-10 text-center md:text-xl max-w-[80%] mt-2 md:mt-6">
-        An open-source starter kit based on{" "}
-        <a href="https://midday.ai?utm_source=v1-convex" className="underline">
-          Midday
-        </a>
-        . Now on{" "}
-        <a href="https://convex.dev/c/middayv1template" className="underline">
-          Convex
-        </a>
-        .
+        Untitled is a platform for Data Trading, IP Protection, and Future
+        Security.
       </p>
 
       {/* In process */}
@@ -35,28 +30,35 @@ export default function Page() {
         Security verified by Kenshū.
       </span> */}
 
-      <div className="mt-10 mb-8">
-        <CopyText value="npm create @erquhart/convex-v1@latest" />
-      </div>
-
-      <TooltipProvider delayDuration={0}>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <a
-              href={process.env.NEXT_PUBLIC_APP_URL}
-              target="_blank"
-              rel="noreferrer"
+      <div className="mt-8">
+        <div className="flex items-center space-x-4">
+          <Link href="/talk-to-us">
+            <Button
+              variant="outline"
+              className="border border-primary h-12 px-6"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-sm">Get started →</span>
-              </div>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" sideOffset={15} className="text-xs">
-            Log in to the example dashboard
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+              Talk to us
+            </Button>
+          </Link>
+
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a
+                  href={process.env.NEXT_PUBLIC_APP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button className="h-12 px-5">Get Started</Button>
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" sideOffset={15} className="text-xs">
+                Log in to the management dashboard
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+      </div>
 
       <div className="absolute -bottom-[280px] inset-0 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4.5rem_2rem] -z-10 [transform:perspective(560px)_rotateX(63deg)] pointer-events-none" />
       <div className="absolute w-full bottom-[100px] h-1/2  bg-gradient-to-b from-background to-transparent pointer-events-none -z-10" />

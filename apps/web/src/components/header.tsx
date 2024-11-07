@@ -15,7 +15,9 @@ import { SubscribeForm } from "./subscribe-form";
 export function Header() {
   return (
     <header className="absolute top-0 w-full flex items-center justify-between p-4 z-10">
-      <span className="hidden md:block text-sm font-medium">convex-v1.run</span>
+      <span className="hidden md:block text-lg font-medium">
+        Untitled
+      </span>
 
       <Link href="/">
         <Image
@@ -36,14 +38,6 @@ export function Header() {
               className="text-sm px-4 py-2 bg-primary text-secondary rounded-full font-medium"
             >
               Sign in
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/get-convex/v1"
-              className="text-sm px-4 py-2 bg-primary text-secondary rounded-full font-medium"
-            >
-              Github
             </a>
           </li>
           <li>

@@ -1,7 +1,15 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="flex items-center justify-center font-mono text-xs fixed bottom-8 w-full flex-col space-y-6">
-      <span className="text-[#878787]">Featuring</span>
+      <p className="text-xs text-[#707070] mt-8 font-mono">
+        Used by over{" "}
+        <Link href="/open-startup" prefetch>
+          <span className="underline">2,600+</span>
+        </Link>{" "}
+        artists.
+      </p>
 
       <div className="relative flex overflow-x-hidden space-x-6">
         <div className="flex items-center space-x-6 animate-marquee whitespace-nowrap lg:animate-none">
