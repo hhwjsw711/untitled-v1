@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@v1/ui/accordion";
-import { cn } from "@v1/ui/utils";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -14,6 +13,8 @@ import {
   ContextMenuTrigger,
 } from "@v1/ui/context-menu";
 import { Icons } from "@v1/ui/icons";
+import { Logo } from "@v1/ui/logo";
+import { cn } from "@v1/ui/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +29,6 @@ import {
   MdOutlineIntegrationInstructions,
   MdOutlineMemory,
 } from "react-icons/md";
-import { Logo } from "@v1/ui/logo";
 
 const listVariant = {
   show: {
@@ -59,7 +59,7 @@ export function Header() {
       const pixelRatio = window.devicePixelRatio || 1;
       document.documentElement.style.setProperty(
         "--pixel-ratio",
-        `${1 / pixelRatio}`
+        `${1 / pixelRatio}`,
       );
     };
 
@@ -188,7 +188,7 @@ export function Header() {
       className={cn(
         "sticky mt-4 top-4 z-50 px-2 md:px-4 md:flex justify-center",
         pathname === "/" &&
-          "transition duration-1s ease-in-out animate-header-slide-down-fade"
+          "transition duration-1s ease-in-out animate-header-slide-down-fade",
       )}
     >
       <nav className="border border-border px-4 flex items-center backdrop-filter backdrop-blur-xl bg-[#121212] bg-opacity-70 h-[50px] z-20">
@@ -233,7 +233,7 @@ export function Header() {
                           fill="currentColor"
                           d="M40.224 11.912h1.395l.056 1.674c.446-1.21 1.47-1.898 2.846-1.898 1.414 0 2.438.763 2.865 2.084.428-1.34 1.47-2.084 3.014-2.084 1.973 0 3.126 1.377 3.126 3.74v6.344H52v-5.897c0-1.805-.707-2.828-1.916-2.828-1.544 0-2.437 1.041-2.437 2.846v5.88H46.12v-5.899c0-1.767-.725-2.827-1.916-2.827-1.526 0-2.456 1.079-2.456 2.827v5.898h-1.525v-9.86Z M56.212 11.912h1.525v9.86h-1.525v-9.86Zm-.037-1.544V8.6h1.6v1.768h-1.6Z M68.936 8.563v13.21H67.56l-.056-1.452c-.558 1.042-1.619 1.675-3.144 1.675-2.847 0-4.168-2.419-4.168-5.154s1.321-5.153 4.168-5.153c1.45 0 2.493.558 3.05 1.562V8.563h1.526Z M80.129 8.563v13.21h-1.377l-.056-1.452c-.558 1.042-1.618 1.675-3.144 1.675-2.847 0-4.168-2.419-4.168-5.154s1.321-5.153 4.168-5.153c1.451 0 2.493.558 3.051 1.562V8.563h1.526Z M92.34 11.912h1.637l2.995 8.223 2.884-8.223h1.619l-4 11.107c-.372 1.06-1.08 1.544-2.196 1.544h-1.172v-1.358h1.024c.502 0 .8-.186.986-.707l.353-.912h-.52l-3.61-9.674Z"
                         />
-                      </svg>`
+                      </svg>`,
                     );
                   } catch {}
                 }}
@@ -291,7 +291,7 @@ export function Header() {
                   <div
                     className={cn(
                       "absolute top-[48px] left-0 -mx-[calc(var(--pixel-ratio)_*_2px)] bg-[#121212] flex h-0 group-hover:h-[250px] overflow-hidden transition-all duration-300 ease-in-out border-l border-r",
-                      hidden && "hidden"
+                      hidden && "hidden",
                     )}
                   >
                     <ul className="p-4 w-[200px] flex-0 space-y-4 mt-2">
@@ -409,7 +409,9 @@ export function Header() {
                     <Accordion collapsible type="single">
                       <AccordionItem value="item-1" className="border-none">
                         <AccordionTrigger className="flex items-center justify-between w-full font-normal p-0 hover:no-underline">
-                          <span className="text-[#878787] text-xl">{title}</span>
+                          <span className="text-[#878787] text-xl">
+                            {title}
+                          </span>
                         </AccordionTrigger>
 
                         {children && (
@@ -456,7 +458,7 @@ export function Header() {
       <div
         className={cn(
           "fixed w-screen h-screen backdrop-blur-md left-0 top-0 invisible opacity-0 transition-all duration-300 z-10",
-          showBlur && "md:visible opacity-100"
+          showBlur && "md:visible opacity-100",
         )}
       />
     </header>
