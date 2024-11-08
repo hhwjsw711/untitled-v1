@@ -22,7 +22,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "tailwind.config.ts",
-    "public/**/*"
+    "types/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }
