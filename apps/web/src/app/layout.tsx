@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={cn(
           `${DepartureMono.variable} ${GeistSans.variable} ${GeistMono.variable}`,
-          "antialiased dark",
+          "antialiased dark overflow-x-hidden",
         )}
       >
         <ConvexClientProvider>

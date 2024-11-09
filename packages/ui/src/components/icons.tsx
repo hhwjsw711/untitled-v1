@@ -1,41 +1,76 @@
 import { Check, Copy, Loader2, LogOut } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+import { FiGithub } from "react-icons/fi";
 import {
+  MdArrowBack,
+  MdArrowRight,
   MdBarChart,
   MdChangeHistory,
+  MdClose,
+  MdOutlineChatBubbleOutline,
   MdOutlineDescription,
   MdOutlineInbox,
   MdOutlineInventory2,
   MdOutlinePalette,
+  MdOutlineSettings,
   MdOutlineTimer,
 } from "react-icons/md";
+import { PiDiscordLogo } from "react-icons/pi";
 
 export const Icons = {
+  LogoSmall: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={32}
+      height={32}
+      viewBox="0 0 299 297"
+      fill="none"
+      {...props}
+    >
+      <path
+        d="M127.103 162.325V0H101.376V96.7823C101.376 127.103 84.5314 143.336 59.417 143.336C35.8339 143.336 25.7269 127.103 25.7269 96.7823V0H0V104.439C0 138.742 17.7638 166 53.9041 166C75.3432 166 94.0258 156.506 102.601 135.373V162.325H127.103Z"
+        fill="currentColor"
+      />
+      <path
+        d="M103 134.675V297H128.727V199.911C128.727 169.897 145.878 153.664 171.605 153.664C196.107 153.664 206.214 169.897 206.214 199.911V297H231.941V192.561C231.941 158.258 214.177 131 177.118 131C154.76 131 135.465 140.801 127.196 162.852L126.583 134.675H103Z"
+        fill="currentColor"
+      />
+      <path
+        d="M225.812 166C269.56 166 298.325 133.639 298.325 83C298.325 32.361 269.56 0 225.812 0C181.765 0 153 32.361 153 83C153 133.639 181.765 166 225.812 166ZM179.368 83C179.368 46.1444 196.448 23.9711 225.812 23.9711C254.877 23.9711 271.957 46.1444 271.957 83C271.957 119.856 254.877 142.029 225.812 142.029C196.448 142.029 179.368 119.856 179.368 83Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
   LogoIcon: (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={16}
-      height={17}
+      height={16}
+      viewBox="0 0 299 297"
       fill="none"
-      viewBox="0 0 16 17"
       {...props}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M9.03167 2.16667H9.03167C10.2577 2.16666 11.2205 2.16665 11.9796 2.25907C12.7544 2.35325 13.3827 2.52241 13.9049 2.93486C14.0613 3.05833 14.2062 3.19470 14.3380 3.34253C14.7821 3.84067 14.9805 4.44446 15.0749 5.18523C15.1667 5.90485 15.1667 6.81547 15.1667 7.96487V8.03520C15.1667 9.18453 15.1667 10.0951 15.0749 10.8148C14.9805 11.5555 14.7821 12.1593 14.3380 12.6575C14.2062 12.8053 14.0613 12.9417 13.9049 13.0651C13.3827 13.4776 12.7544 13.6467 11.9796 13.7409C11.2205 13.8333 10.2577 13.8333 9.03167 13.8333H6.96833C5.74230 13.8333 4.77945 13.8333 4.02039 13.7409C3.24561 13.6467 2.61733 13.4776 2.09509 13.0651C1.93874 12.9417 1.79379 12.8053 1.66199 12.6575C1.21787 12.1593 1.01954 11.5555 0.925087 10.8148C0.833320 10.0951 0.833327 9.18447 0.833333 8.03513V8.03513V7.96487V7.96480C0.833327 6.81547 0.833320 5.90485 0.925087 5.18523C1.01954 4.44446 1.21787 3.84067 1.66199 3.34253C1.79379 3.19470 1.93874 3.05833 2.09509 2.93486C2.61733 2.52241 3.24561 2.35325 4.02039 2.25907C4.77945 2.16665 5.74230 2.16666 6.96833 2.16667H9.03167Z"
+        d="M127.103 162.325V0H101.376V96.7823C101.376 127.103 84.5314 143.336 59.417 143.336C35.8339 143.336 25.7269 127.103 25.7269 96.7823V0H0V104.439C0 138.742 17.7638 166 53.9041 166C75.3432 166 94.0258 156.506 102.601 135.373V162.325H127.103Z"
         fill="currentColor"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M5.33333 5.33333V9.66667C5.33333 10.5871 6.07953 11.3333 7 11.3333H9C9.92047 11.3333 10.6667 10.5871 10.6667 9.66667V5.33333H9.33333V9.66667C9.33333 9.85076 9.18409 10 9 10H7C6.81591 10 6.66667 9.85076 6.66667 9.66667V5.33333H5.33333Z"
-        fill="hsl(var(--background))"
+        d="M103 134.675V297H128.727V199.911C128.727 169.897 145.878 153.664 171.605 153.664C196.107 153.664 206.214 169.897 206.214 199.911V297H231.941V192.561C231.941 158.258 214.177 131 177.118 131C154.76 131 135.465 140.801 127.196 162.852L126.583 134.675H103Z"
+        fill="currentColor"
+      />
+      <path
+        d="M225.812 166C269.56 166 298.325 133.639 298.325 83C298.325 32.361 269.56 0 225.812 0C181.765 0 153 32.361 153 83C153 133.639 181.765 166 225.812 166ZM179.368 83C179.368 46.1444 196.448 23.9711 225.812 23.9711C254.877 23.9711 271.957 46.1444 271.957 83C271.957 119.856 254.877 142.029 225.812 142.029C196.448 142.029 179.368 119.856 179.368 83Z"
+        fill="currentColor"
       />
     </svg>
   ),
+  X: FaXTwitter,
+  Discord: PiDiscordLogo,
+  GithubOutline: FiGithub,
   SignOut: LogOut,
   Copy,
   Check,
+  Close: MdClose,
   Loader: Loader2,
   Overview: MdBarChart,
   Files: MdOutlineInventory2,
@@ -44,4 +79,32 @@ export const Icons = {
   Invoice: MdOutlineDescription,
   Change: MdChangeHistory,
   Palette: MdOutlinePalette,
+  ChatBubble: MdOutlineChatBubbleOutline,
+  Settings: MdOutlineSettings,
+  ArrowBack: MdArrowBack,
+  ArrowRight: MdArrowRight,
+  Sidebar: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      fill="currentColor"
+      viewBox="0 -960 960 960"
+      {...props}
+    >
+      <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm240-80h400v-480H400v480Zm-80 0v-480H160v480h160Zm-160 0v-480 480Zm160 0h80-80Zm0-480h80-80Z" />
+    </svg>
+  ),
+  SidebarFilled: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      fill="currentColor"
+      viewBox="0 -960 960 960"
+      {...props}
+    >
+      <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h160v640H160Zm240 0v-640h400q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H400Z" />
+    </svg>
+  ),
 };
