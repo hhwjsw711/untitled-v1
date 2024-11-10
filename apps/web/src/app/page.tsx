@@ -14,12 +14,12 @@ export default function Page() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center relative overflow-hidden">
       <h1 className="font-departure text-[40px] md:text-[84px] relative z-10 text-center h-[120px] md:h-auto leading-tight">
-        <AnimatedText text="Trust in Every Trade" />
+        <AnimatedText text="Beyond Definitions" />
       </h1>
 
       <p className="relative z-10 text-center md:text-xl max-w-[80%] mt-2 md:mt-6">
-        Untitled is a platform for Data Trading, IP Protection, and Future
-        Security.
+        Things have no essence, matters have no categories, objects have no
+        definitions. Untitled redefines the boundaries of digital interactions.
       </p>
 
       {/* In process */}

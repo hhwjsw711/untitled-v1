@@ -16,9 +16,9 @@ const DepartureMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://untitled.uno"),
-  title: "Untitled - Trust in Every Trade",
+  title: "Untitled - Beyond Definitions",
   description:
-    "Untitled is a platform for Data Trading, IP Protection, and Future Security.",
+    "Things have no essence, matters have no categories, objects have no definitions. Untitled redefines the boundaries of digital interactions.",
 };
 
 export default function RootLayout({

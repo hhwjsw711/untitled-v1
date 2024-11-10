@@ -7,6 +7,9 @@ import {
   MdBarChart,
   MdChangeHistory,
   MdClose,
+  MdExpandLess,
+  MdExpandMore,
+  MdIosShare,
   MdOutlineChatBubbleOutline,
   MdOutlineDescription,
   MdOutlineInbox,
@@ -83,6 +86,9 @@ export const Icons = {
   Settings: MdOutlineSettings,
   ArrowBack: MdArrowBack,
   ArrowRight: MdArrowRight,
+  Share: MdIosShare,
+  ChevronDown: MdExpandMore,
+  ChevronUp: MdExpandLess,
   Sidebar: (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

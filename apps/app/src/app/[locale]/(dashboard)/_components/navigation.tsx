@@ -31,6 +31,13 @@ export function Navigation({
   const isDashboardPath = pathname === "/";
   const isSettingsPath = pathname === "/settings";
   const isBillingPath = pathname === "/settings/billing";
+  const isOverviewPath = pathname === "/overview";
+  const isInboxPath = pathname === "/inbox";
+  const isTransactionsPath = pathname === "/transactions";
+  const isInvoicesPath = pathname === "/invoices";
+  const isTrackerPath = pathname === "/tracker";
+  const isVaultPath = pathname === "/vault";
+  const isAppsPath = pathname === "/apps";
 
   const user = usePreloadedQuery(preloadedUser);
 
@@ -147,6 +154,111 @@ export function Navigation({
             )}
           >
             Dashboard
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "flex h-12 items-center border-b-2",
+            isOverviewPath ? "border-primary" : "border-transparent",
+          )}
+        >
+          <Link
+            href="/overview"
+            className={cn(
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+            )}
+          >
+            Overview
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "flex h-12 items-center border-b-2",
+            isInboxPath ? "border-primary" : "border-transparent",
+          )}
+        >
+          <Link
+            href="/inbox"
+            className={cn(
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+            )}
+          >
+            Inbox
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "flex h-12 items-center border-b-2",
+            isTransactionsPath ? "border-primary" : "border-transparent",
+          )}
+        >
+          <Link
+            href="/transactions"
+            className={cn(
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+            )}
+          >
+            Transactions
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "flex h-12 items-center border-b-2",
+            isInvoicesPath ? "border-primary" : "border-transparent",
+          )}
+        >
+          <Link
+            href="/invoices"
+            className={cn(
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+            )}
+          >
+            Invoices
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "flex h-12 items-center border-b-2",
+            isTrackerPath ? "border-primary" : "border-transparent",
+          )}
+        >
+          <Link
+            href="/tracker"
+            className={cn(
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+            )}
+          >
+            Tracker
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "flex h-12 items-center border-b-2",
+            isVaultPath ? "border-primary" : "border-transparent",
+          )}
+        >
+          <Link
+            href="/vault"
+            className={cn(
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+            )}
+          >
+            Vault
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "flex h-12 items-center border-b-2",
+            isAppsPath ? "border-primary" : "border-transparent",
+          )}
+        >
+          <Link
+            href="/apps"
+            className={cn(
+              `${buttonVariants({ variant: "ghost", size: "sm" })} text-primary/80`,
+            )}
+          >
+            Apps
           </Link>
         </div>
         <div
