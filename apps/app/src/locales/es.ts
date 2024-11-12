@@ -37,4 +37,11 @@ export default {
       billing: "Facturación",
     },
   },
+  invoice_status: {
+    draft: "Borrador",
+    overdue: "Vencida",
+    paid: "Pagada",
+    unpaid: "Pendiente",
+    canceled: "Cancelada",
+  },
 } as const;

@@ -34,4 +34,11 @@ export default {
       billing: "Billing",
     },
   },
+  invoice_status: {
+    draft: "Draft",
+    overdue: "Overdue",
+    paid: "Paid",
+    unpaid: "Unpaid",
+    canceled: "Canceled",
+  },
 } as const;

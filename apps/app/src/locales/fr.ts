@@ -35,4 +35,11 @@ export default {
       billing: "Facturation",
     },
   },
+  invoice_status: {
+    draft: "Brouillon",
+    overdue: "En retard",
+    paid: "Payée",
+    unpaid: "Impayée",
+    canceled: "Annulée",
+  },
 } as const;

@@ -2,6 +2,7 @@ import { Check, Copy, Loader2, LogOut } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
 import {
+  MdAdd,
   MdArrowBack,
   MdArrowRight,
   MdBarChart,
@@ -10,13 +11,19 @@ import {
   MdExpandLess,
   MdExpandMore,
   MdIosShare,
+  MdOutlineCalendarMonth,
   MdOutlineChatBubbleOutline,
+  MdOutlineClear,
   MdOutlineDescription,
+  MdOutlineFace,
+  MdOutlineFilterList,
   MdOutlineInbox,
   MdOutlineInventory2,
   MdOutlinePalette,
   MdOutlineSettings,
+  MdOutlineStyle,
   MdOutlineTimer,
+  MdSearch,
 } from "react-icons/md";
 import { PiDiscordLogo } from "react-icons/pi";
 
@@ -84,11 +91,18 @@ export const Icons = {
   Palette: MdOutlinePalette,
   ChatBubble: MdOutlineChatBubbleOutline,
   Settings: MdOutlineSettings,
+  Add: MdAdd,
+  Clear: MdOutlineClear,
   ArrowBack: MdArrowBack,
   ArrowRight: MdArrowRight,
   Share: MdIosShare,
   ChevronDown: MdExpandMore,
   ChevronUp: MdExpandLess,
+  Search: MdSearch,
+  CalendarMonth: MdOutlineCalendarMonth,
+  Filter: MdOutlineFilterList,
+  Face: MdOutlineFace,
+  Status: MdOutlineStyle,
   Sidebar: (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
