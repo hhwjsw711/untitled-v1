@@ -72,7 +72,7 @@ export const update = mutation({
       (f) => f.name === args.name.trim(),
     );
 
-    if (sameNameForms.length > 0 && sameNameForms[0]._id !== args.formId) {
+    if (sameNameForms.length > 0 && sameNameForms[0]?._id !== args.formId) {
       throw new ConvexError("Form with this name already exists");
     }
 
