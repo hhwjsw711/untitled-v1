@@ -1,8 +1,10 @@
+import { GlobalSheets } from "@/components/sheets/global-sheets";
 import { convexAuthNextjsToken } from "@convex-dev/auth/nextjs/server";
 import { api } from "@v1/backend/convex/_generated/api";
 import { fetchQuery, preloadQuery } from "convex/nextjs";
 import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 import { Navigation } from "./_components/navigation";
 
 const AssistantModal = dynamic(
@@ -36,6 +38,9 @@ export default async function Layout({
       <Navigation preloadedUser={preloadedUser} />
       {children}
       <AssistantModal />
+      <Suspense>
+        <GlobalSheets />
+      </Suspense>
     </div>
   );
 }
