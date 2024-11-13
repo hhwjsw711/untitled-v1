@@ -156,13 +156,13 @@ export function ComboboxDropdown<T extends ComboboxItem>({
           aria-expanded={open}
           className="w-full justify-between relative"
         >
-          {selectedItem
-            ? (
-                <div className="flex items-center">
-                  {renderSelectedItem?.(selectedItem)}
-                </div>
-              ) ?? selectedItem.label
-            : placeholder ?? "Select item..."}
+          {selectedItem ? (
+            <div className="flex items-center">
+              {renderSelectedItem(selectedItem) || selectedItem.label}
+            </div>
+          ) : (
+            placeholder ?? "Select item..."
+          )}
           <ChevronsUpDown className="size-4 opacity-50 absolute right-2" />
         </Button>
       </PopoverTrigger>
