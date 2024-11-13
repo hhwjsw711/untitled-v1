@@ -5,7 +5,7 @@ import { InvoiceStatus } from "@/components/invoice-status";
 import { useInvoiceParams } from "@/hooks/use-invoice-params";
 import { formatDate, getDueDateStatus } from "@/utils/format";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
-import type { ColumnDef } from "@tanstack/react-table";
+import type { ColumnDef, Row } from "@tanstack/react-table";
 import { Avatar, AvatarFallback, AvatarImageNext } from "@v1/ui/avatar";
 import { Button } from "@v1/ui/button";
 import {
@@ -52,7 +52,7 @@ export const columns: ColumnDef<Invoice>[] = [
   {
     header: "Due date",
     accessorKey: "due_date",
-    cell: ({ row }) => {
+    cell: ({ row }: { row: Row<Invoice> }) => {
       const date = row.getValue("due_date") as string;
 
       const showDate =
@@ -75,12 +75,14 @@ export const columns: ColumnDef<Invoice>[] = [
   {
     header: "Status",
     accessorKey: "status",
-    cell: ({ row }) => <InvoiceStatus status={row.getValue("status")} />,
+    cell: ({ row }: { row: Row<Invoice> }) => (
+      <InvoiceStatus status={row.getValue("status")} />
+    ),
   },
   {
     header: "Customer",
     accessorKey: "customer",
-    cell: ({ row }) => {
+    cell: ({ row }: { row: Row<Invoice> }) => {
       const customer = row.original.customer;
       const name = customer?.name || row.original.customer_name;
       const viewAt = row.original.viewed_at;
@@ -128,7 +130,7 @@ export const columns: ColumnDef<Invoice>[] = [
   {
     header: "Amount",
     accessorKey: "amount",
-    cell: ({ row }) => (
+    cell: ({ row }: { row: Row<Invoice> }) => (
       <span
         className={cn({
           "line-through": row.original.status === "canceled",
@@ -144,12 +146,12 @@ export const columns: ColumnDef<Invoice>[] = [
   {
     header: "Invoice no.",
     accessorKey: "invoice_number",
-    cell: ({ row }) => row.getValue("invoice_number"),
+    cell: ({ row }: { row: Row<Invoice> }) => row.getValue("invoice_number"),
   },
   {
     header: "Issue date",
     accessorKey: "issue_date",
-    cell: ({ row }) => {
+    cell: ({ row }: { row: Row<Invoice> }) => {
       const date = row.getValue("issue_date") as string;
       return <span>{date ? formatDate(date) : "-"}</span>;
     },
@@ -157,12 +159,13 @@ export const columns: ColumnDef<Invoice>[] = [
   {
     header: "Recurring",
     accessorKey: "recurring",
-    cell: ({ row }) => row.getValue("recurring") ?? "One time",
+    cell: ({ row }: { row: Row<Invoice> }) =>
+      row.getValue("recurring") ?? "One time",
   },
   {
     id: "actions",
     header: "Actions",
-    cell: ({ row, table }) => {
+    cell: ({ row }: { row: Row<Invoice> }) => {
       const status = row.getValue("status");
       const { setParams } = useInvoiceParams();
       const { toast } = useToast();
