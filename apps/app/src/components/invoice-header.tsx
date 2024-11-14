@@ -3,12 +3,10 @@ import { OpenInvoiceSheet } from "./open-invoice-sheet";
 
 export async function InvoiceHeader() {
   return (
-    <div className="flex items-center justify-between w-full gap-4">
-      <div className="flex-1">
-        <InvoiceSearchFilter />
-      </div>
+    <div className="flex items-center justify-between">
+      <InvoiceSearchFilter />
 
-      <div className="hidden sm:block shrink-0">
+      <div className="hidden sm:block">
         <OpenInvoiceSheet />
       </div>
     </div>

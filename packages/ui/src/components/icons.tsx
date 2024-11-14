@@ -8,6 +8,7 @@ import {
   MdBarChart,
   MdChangeHistory,
   MdClose,
+  MdDragIndicator,
   MdExpandLess,
   MdExpandMore,
   MdIosShare,
@@ -25,6 +26,7 @@ import {
   MdOutlineFilterList,
   MdOutlineInbox,
   MdOutlineInventory2,
+  MdOutlineLaunch,
   MdOutlineMoreVert,
   MdOutlinePalette,
   MdOutlineQrCode2,
@@ -113,6 +115,8 @@ export const Icons = {
   Face: MdOutlineFace,
   Status: MdOutlineStyle,
   Visibility: MdOutlineVisibility,
+  DragIndicator: MdDragIndicator,
+  ExternalLink: MdOutlineLaunch,
   Sidebar: (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

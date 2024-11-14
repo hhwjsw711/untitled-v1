@@ -1,6 +1,6 @@
 "use client";
 
-import { uniqueCurrencies } from "@v1/location/src/currencies";
+import { uniqueCurrencies } from "@v1/location/currencies";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,

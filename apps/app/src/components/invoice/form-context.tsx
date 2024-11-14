@@ -9,7 +9,7 @@ import { useInvoiceParams } from "@/hooks/use-invoice-params";
 import { UTCDate } from "@date-fns/utc";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { addMonths } from "date-fns";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 
@@ -50,36 +50,22 @@ const defaultTemplate: InvoiceTemplate = {
 type FormContextProps = {
   id?: string | null;
   children: React.ReactNode;
-  template: InvoiceTemplate;
-  invoiceNumber: string;
   isOpen: boolean;
 };
 
-export function FormContext({
-  id,
-  children,
-  template,
-  isOpen,
-  invoiceNumber,
-}: FormContextProps) {
+export function FormContext({ id, children, isOpen }: FormContextProps) {
   const { lineItems, currency } = useInvoiceParams();
-  const [isLoading, setLoading] = useState(false);
 
   const defaultValues = {
     id: uuidv4(),
     template: {
       ...defaultTemplate,
-      ...template,
     },
     customer_details: undefined,
-    from_details: template.from_details ?? defaultTemplate.from_details,
-    payment_details:
-      template.payment_details ?? defaultTemplate.payment_details,
     note_details: undefined,
     customer_id: undefined,
     issue_date: new UTCDate(),
     due_date: addMonths(new UTCDate(), 1),
-    invoice_number: invoiceNumber,
     line_items: [{ name: "", quantity: 0, price: 0, vat: 0 }],
     tax: undefined,
     token: undefined,
@@ -108,17 +94,6 @@ export function FormContext({
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    async function fetchInvoice() {
-      setLoading(false);
-    }
-
-    if (id) {
-      setLoading(true);
-      fetchInvoice();
-    }
-  }, [id, isOpen]);
-
   // These values comes from the tracker table
   useEffect(() => {
     if (lineItems) {
@@ -131,10 +106,6 @@ export function FormContext({
       form.setValue("template.currency", currency);
     }
   }, [currency]);
-
-  if (isLoading) {
-    return null;
-  }
 
   return <FormProvider {...form}>{children}</FormProvider>;
 }
