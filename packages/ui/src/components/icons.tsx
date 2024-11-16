@@ -12,6 +12,7 @@ import {
   MdExpandLess,
   MdExpandMore,
   MdIosShare,
+  MdOutlineArrowOutward,
   MdOutlineAssuredWorkload,
   MdOutlineAttachMoney,
   MdOutlineCalculate,
@@ -166,4 +167,5 @@ export const Icons = {
   ConfirmationNumber: MdOutlineConfirmationNumber,
   QrCode: MdOutlineQrCode2,
   MoreVertical: MdOutlineMoreVert,
+  ArrowOutward: MdOutlineArrowOutward,
 };

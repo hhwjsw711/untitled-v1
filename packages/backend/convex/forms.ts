@@ -1,6 +1,7 @@
 import type { AnyDataModel, GenericMutationCtx } from "convex/server";
 import { ConvexError, v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+
 const generateUniqueSlug = async (ctx: GenericMutationCtx<AnyDataModel>) => {
   let tries = 0;
   while (tries < 5) {
@@ -18,6 +19,7 @@ const generateUniqueSlug = async (ctx: GenericMutationCtx<AnyDataModel>) => {
   }
   throw new ConvexError("Failed to generate a unique slug");
 };
+
 export const create = mutation({
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -31,6 +33,7 @@ export const create = mutation({
     return newFormId;
   },
 });
+
 export const update = mutation({
   args: {
     formId: v.id("forms"),

@@ -16,9 +16,9 @@ const DepartureMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://untitled.uno"),
-  title: "Untitled - Beyond Definitions",
+  title: "Untitled - Trust in Every Trade",
   description:
-    "Things have no essence, matters have no categories, objects have no definitions. Untitled redefines the boundaries of digital interactions.",
+    "Untitled is a platform for Data Trading, IP Protection, and Future Security.",
 };
 
 export default function RootLayout({
@@ -31,12 +31,14 @@ export default function RootLayout({
       <body
         className={cn(
           `${DepartureMono.variable} ${GeistSans.variable} ${GeistMono.variable}`,
-          "antialiased dark overflow-x-hidden",
+          "bg-[#0C0C0C] antialiased dark overflow-x-hidden",
         )}
       >
         <ConvexClientProvider>
           <Header />
-          {children}
+          <main className="container mx-auto px-4 overflow-hidden md:overflow-visible">
+            {children}
+          </main>
           <Footer />
         </ConvexClientProvider>
 
