@@ -124,6 +124,10 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      <h5 className="text-[#161616] text-[500px] leading-none text-center pointer-events-none">
+        broker
+      </h5>
     </footer>
   );
 }

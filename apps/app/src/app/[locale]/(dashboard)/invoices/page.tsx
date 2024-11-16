@@ -8,7 +8,7 @@ import { Suspense } from "react";
 import { searchParamsCache } from "./search-params";
 
 export const metadata: Metadata = {
-  title: "Invoices | Midday",
+  title: "Invoices | Broker",
 };
 
 export default async function Page({
@@ -42,7 +42,7 @@ export default async function Page({
 
       <ErrorBoundary errorComponent={ErrorFallback}>
         <Suspense fallback={<InvoiceSkeleton />} key={loadingKey}>
-          {/* <InvoicesTable
+          <InvoicesTable
             query={query}
             sort={sort}
             start={start}
@@ -50,7 +50,7 @@ export default async function Page({
             statuses={statuses}
             customers={customers}
             page={page}
-          /> */}
+          />
         </Suspense>
       </ErrorBoundary>
     </div>
