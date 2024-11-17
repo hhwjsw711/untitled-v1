@@ -1,6 +1,8 @@
 import "@v1/ui/globals.css";
 import { Footer } from "@/components/footer";
+import { FooterCTA } from "@/components/footer-cta";
 import { Header } from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Provider as AnalyticsProvider } from "@v1/analytics/client";
 import { cn } from "@v1/ui/utils";
 import { GeistMono } from "geist/font/mono";
@@ -31,15 +33,23 @@ export default function RootLayout({
       <body
         className={cn(
           `${DepartureMono.variable} ${GeistSans.variable} ${GeistMono.variable}`,
-          "bg-[#0C0C0C] antialiased dark overflow-x-hidden",
+          "bg-[#fbfbfb] dark:bg-[#0C0C0C] overflow-x-hidden antialiased",
         )}
       >
         <ConvexClientProvider>
-          <Header />
-          <main className="container mx-auto px-4 overflow-hidden md:overflow-visible">
-            {children}
-          </main>
-          <Footer />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <main className="container mx-auto px-4 overflow-hidden md:overflow-visible">
+              {children}
+            </main>
+            <FooterCTA />
+            <Footer />
+          </ThemeProvider>
         </ConvexClientProvider>
 
         <AnalyticsProvider />

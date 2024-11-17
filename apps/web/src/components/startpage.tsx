@@ -4,6 +4,7 @@ import { SectionOne } from "@/components/section-one";
 import { SectionSeven } from "@/components/section-seven";
 import { SectionThree } from "@/components/section-three";
 import { SectionTwo } from "@/components/section-two";
+import { SectionFive } from "./section-five";
 
 export function StartPage() {
   return (
@@ -13,6 +14,7 @@ export function StartPage() {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
+      <SectionFive />
       <SectionSeven />
     </>
   );

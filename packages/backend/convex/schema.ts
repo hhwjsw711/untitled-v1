@@ -86,22 +86,21 @@ export default defineSchema({
   })
     .index("userId", ["userId"])
     .index("polarId", ["polarId"]),
-  forms: defineTable({
-    createdBy: v.string(),
-    description: v.optional(v.string()),
-    name: v.optional(v.string()),
-    slug: v.string(),
-  }).index("by_slug", ["slug"]),
-  form_responses: defineTable({
-    formId: v.id("forms"),
-    slug: v.optional(v.string()),
-    values: v.array(v.object({ name: v.string(), value: v.string() })),
-  }).index("by_formId", ["formId"]),
-  form_fields: defineTable({
-    formId: v.string(),
+  customers: defineTable({
+    email: v.string(),
     name: v.string(),
-    order: v.float64(),
-    selectOptions: v.optional(v.array(v.string())),
-    type: v.string(),
-  }),
+    token: v.string(),
+    addressLine1: v.optional(v.string()),
+    addressLine2: v.optional(v.string()),
+    city: v.optional(v.string()),
+    country: v.optional(v.string()),
+    countryCode: v.optional(v.string()),
+    note: v.optional(v.string()),
+    phone: v.optional(v.string()),
+    state: v.optional(v.string()),
+    vatNumber: v.optional(v.string()),
+    website: v.optional(v.string()),
+    zip: v.optional(v.string()),
+    userId: v.id("users"),
+  }).index("userId", ["userId"]),
 });

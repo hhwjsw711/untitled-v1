@@ -16,12 +16,10 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as auth from "../auth.js";
+import type * as customers from "../customers.js";
 import type * as email_index from "../email/index.js";
 import type * as email_templates_subscriptionEmail from "../email/templates/subscriptionEmail.js";
 import type * as env from "../env.js";
-import type * as formFields from "../formFields.js";
-import type * as formResponses from "../formResponses.js";
-import type * as forms from "../forms.js";
 import type * as http from "../http.js";
 import type * as init from "../init.js";
 import type * as subscriptions from "../subscriptions.js";
@@ -39,12 +37,10 @@ import type * as web from "../web.js";
  */
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
+  customers: typeof customers;
   "email/index": typeof email_index;
   "email/templates/subscriptionEmail": typeof email_templates_subscriptionEmail;
   env: typeof env;
-  formFields: typeof formFields;
-  formResponses: typeof formResponses;
-  forms: typeof forms;
   http: typeof http;
   init: typeof init;
   subscriptions: typeof subscriptions;

@@ -1,4 +1,3 @@
-import type { lineItemSchema } from "@/actions/invoice/schema";
 import {
   parseAsArrayOf,
   parseAsJson,
@@ -7,7 +6,13 @@ import {
   useQueryStates,
 } from "nuqs";
 
-import type { z } from "zod";
+import { z } from "zod";
+
+const lineItemSchema = z.object({
+  name: z.string(),
+  price: z.number(),
+  quantity: z.number(),
+});
 
 export function useInvoiceParams(options?: { shallow: boolean }) {
   const [params, setParams] = useQueryStates(

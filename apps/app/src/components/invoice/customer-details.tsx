@@ -4,6 +4,7 @@ import { Editor } from "@/components/invoice/editor";
 import { useInvoiceParams } from "@/hooks/use-invoice-params";
 import type { JSONContent } from "@tiptap/react";
 import { Controller, useFormContext } from "react-hook-form";
+import { SelectCustomer } from "../select-customer";
 import { LabelInput } from "./label-input";
 
 export interface Customer {
@@ -25,6 +26,7 @@ export function CustomerDetails() {
   const { control, setValue, watch } = useFormContext();
   const { setParams, selectedCustomerId } = useInvoiceParams();
 
+  const content = watch("customer_details");
   const id = watch("id");
 
   const handleOnChange = (content?: JSONContent | null) => {
@@ -45,7 +47,7 @@ export function CustomerDetails() {
   return (
     <div>
       <LabelInput name="template.customer_label" className="mb-2 block" />
-      {
+      {content ? (
         <Controller
           name="customer_details"
           control={control}
@@ -59,7 +61,9 @@ export function CustomerDetails() {
             />
           )}
         />
-      }
+      ) : (
+        <SelectCustomer />
+      )}
     </div>
   );
 }

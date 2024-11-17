@@ -1,4 +1,4 @@
-import { TextGenerateEffect } from "./text-generate-effect";
+import { TextGenerateEffect } from "@/components/text-generate-effect";
 
 export function SectionSeven() {
   return (
