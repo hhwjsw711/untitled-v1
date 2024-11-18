@@ -16,11 +16,12 @@ import { Icons } from "@v1/ui/icons";
 import { Logo } from "@v1/ui/logo";
 import { cn } from "@v1/ui/utils";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import menuAssistant from "public/menu-assistant.jpg";
-import menuEngine from "public/menu-engine.png";
+import menuAssistantLight from "public/menu-assistant-lt.jpg";
+import menuAssistantDark from "public/menu-assistant.jpg";
+import menuEngineLight from "public/menu-engine-light.png";
+import menuEngineDark from "public/menu-engine.png";
 import { useEffect, useState } from "react";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import {
@@ -29,6 +30,7 @@ import {
   MdOutlineIntegrationInstructions,
   MdOutlineMemory,
 } from "react-icons/md";
+import { DynamicImage } from "./dynamic-image";
 
 const listVariant = {
   show: {
@@ -90,7 +92,11 @@ export function Header() {
       title: "Features",
       cover: (
         <Link href="/#assistant" onClick={handleOnClick}>
-          <Image alt="Assistant" src={menuAssistant} quality={100} />
+          <DynamicImage
+            alt="Assistant"
+            darkSrc={menuAssistantDark}
+            lightSrc={menuAssistantLight}
+          />
         </Link>
       ),
       children: [
@@ -141,7 +147,11 @@ export function Header() {
       title: "Developers",
       cover: (
         <Link href="/engine" onClick={handleOnClick}>
-          <Image alt="Engine" src={menuEngine} quality={100} />
+          <DynamicImage
+            alt="Engine"
+            darkSrc={menuEngineDark}
+            lightSrc={menuEngineLight}
+          />
         </Link>
       ),
       children: [
@@ -167,7 +177,7 @@ export function Header() {
         },
         {
           title: "Apps & Integrations",
-          path: "https://docs.midday.ai",
+          path: "https://docs.midday.ai/integrations",
           icon: <MdOutlineIntegrationInstructions size={20} />,
         },
         {
@@ -184,24 +194,18 @@ export function Header() {
   }
 
   return (
-    <header
-      className={cn(
-        "sticky mt-4 top-4 z-50 px-2 md:px-4 md:flex justify-center",
-        pathname === "/" &&
-          "transition duration-1s ease-in-out animate-header-slide-down-fade",
-      )}
-    >
-      <nav className="border border-border px-4 flex items-center backdrop-filter backdrop-blur-xl bg-[#121212] bg-opacity-70 h-[50px] z-20">
+    <header className="sticky mt-4 top-4 z-50 px-2 md:px-4 md:flex justify-center">
+      <nav className="border border-border px-4 flex items-center backdrop-filter backdrop-blur-xl bg-[#FFFFFF] dark:bg-[#121212] bg-opacity-70 h-[50px] z-20">
         <ContextMenu>
           <ContextMenuTrigger>
             <Link href="/">
-              <span className="sr-only">Untitled Logo</span>
+              <span className="sr-only">Midday Logo</span>
               <Logo />
             </Link>
           </ContextMenuTrigger>
 
           <ContextMenuContent
-            className="w-[200px] bg-[#121212] rounded-none"
+            className="w-[200px] dark:bg-[]dark:bg-[#121212] bg-[#fff] rounded-none"
             alignOffset={20}
           >
             <div className="divide-y">
@@ -211,25 +215,23 @@ export function Header() {
                   try {
                     await navigator.clipboard.writeText(
                       `<svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="299"
-                        height="297"
-                        viewBox="0 0 299 297"
-                        fill="none"
-                      >
-                        <path
-                          d="M127.103 162.325V0H101.376V96.7823C101.376 127.103 84.5314 143.336 59.417 143.336C35.8339 143.336 25.7269 127.103 25.7269 96.7823V0H0V104.439C0 138.742 17.7638 166 53.9041 166C75.3432 166 94.0258 156.506 102.601 135.373V162.325H127.103Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M103 134.675V297H128.727V199.911C128.727 169.897 145.878 153.664 171.605 153.664C196.107 153.664 206.214 169.897 206.214 199.911V297H231.941V192.561C231.941 158.258 214.177 131 177.118 131C154.76 131 135.465 140.801 127.196 162.852L126.583 134.675H103Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M225.812 166C269.56 166 298.325 133.639 298.325 83C298.325 32.361 269.56 0 225.812 0C181.765 0 153 32.361 153 83C153 133.639 181.765 166 225.812 166ZM179.368 83C179.368 46.1444 196.448 23.9711 225.812 23.9711C254.877 23.9711 271.957 46.1444 271.957 83C271.957 119.856 254.877 142.029 225.812 142.029C196.448 142.029 179.368 119.856 179.368 83Z"
-                          fill="currentColor"
-                        />
-                      </svg>`,
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={102}
+                      height={30}
+                      fill="none"
+                    >
+                      <path
+                        fill="currentColor"
+                        fillRule="evenodd"
+                        d="M14.347 0a14.931 14.931 0 0 0-6.282 1.68l6.282 10.88V0Zm0 17.443L8.067 28.32a14.933 14.933 0 0 0 6.28 1.68V17.443ZM15.652 30V17.432l6.285 10.887A14.932 14.932 0 0 1 15.652 30Zm0-17.43V0c2.26.097 4.392.693 6.287 1.682l-6.287 10.889ZM2.336 23.068l10.884-6.284-6.284 10.884a15.093 15.093 0 0 1-4.6-4.6Zm25.33-16.132-10.88 6.282 6.282-10.88a15.094 15.094 0 0 1 4.598 4.598ZM2.335 6.934a15.094 15.094 0 0 1 4.6-4.6l6.284 10.884L2.335 6.934Zm-.654 1.13A14.931 14.931 0 0 0 0 14.35h12.568L1.681 8.064Zm0 13.873a14.932 14.932 0 0 1-1.68-6.282h12.562L1.682 21.938Zm15.754-7.587H30a14.93 14.93 0 0 0-1.68-6.285L17.435 14.35Zm10.884 7.586-10.878-6.28H30a14.932 14.932 0 0 1-1.68 6.28Zm-11.533-5.151 6.281 10.88a15.092 15.092 0 0 0 4.598-4.599l-10.88-6.281Z"
+                        clipRule="evenodd"
+                      />
+                      <path
+                        fill="currentColor"
+                        d="M92.34 11.912h1.637l2.995 8.223 2.884-8.223h1.619l-4 11.107c-.372 1.06-1.08 1.544-2.196 1.544h-1.172v-1.358h1.024c.502 0 .8-.186.986-.707l.353-.912h-.52l-3.61-9.674ZM82.744 14.814c.39-1.916 1.916-3.126 4.018-3.126 2.549 0 3.963 1.489 3.963 4.13v3.964c0 .446.186.632.614.632h.39v1.358h-.65c-1.005 0-1.88-.335-1.861-1.544-.428.93-1.544 1.767-3.107 1.767-1.954 0-3.535-1.041-3.535-2.79 0-2.028 1.544-2.55 3.702-2.977l2.921-.558c-.018-1.712-.818-2.53-2.437-2.53-1.265 0-2.102.65-2.4 1.804l-1.618-.13Zm1.432 4.39c0 .8.689 1.452 2.14 1.433 1.637 0 2.92-1.153 2.92-3.442v-.167l-2.362.41c-1.47.26-2.698.371-2.698 1.767ZM80.129 8.563v13.21h-1.377l-.056-1.452c-.558 1.042-1.618 1.675-3.144 1.675-2.847 0-4.168-2.419-4.168-5.154s1.321-5.153 4.168-5.153c1.451 0 2.493.558 3.051 1.562V8.563h1.526Zm-7.145 8.28c0 1.915.819 3.701 2.884 3.701 2.028 0 2.865-1.823 2.865-3.702 0-1.953-.837-3.758-2.865-3.758-2.065 0-2.884 1.786-2.884 3.758ZM68.936 8.563v13.21H67.56l-.056-1.452c-.558 1.042-1.619 1.675-3.144 1.675-2.847 0-4.168-2.419-4.168-5.154s1.321-5.153 4.168-5.153c1.45 0 2.493.558 3.05 1.562V8.563h1.526Zm-7.144 8.28c0 1.915.819 3.701 2.884 3.701 2.028 0 2.865-1.823 2.865-3.702 0-1.953-.837-3.758-2.865-3.758-2.065 0-2.884 1.786-2.884 3.758ZM56.212 11.912h1.525v9.86h-1.525v-9.86Zm-.037-1.544V8.6h1.6v1.768h-1.6ZM40.224 11.912h1.395l.056 1.674c.446-1.21 1.47-1.898 2.846-1.898 1.414 0 2.438.763 2.865 2.084.428-1.34 1.47-2.084 3.014-2.084 1.973 0 3.126 1.377 3.126 3.74v6.344H52v-5.897c0-1.805-.707-2.828-1.916-2.828-1.544 0-2.437 1.041-2.437 2.846v5.88H46.12v-5.899c0-1.767-.725-2.827-1.916-2.827-1.526 0-2.456 1.079-2.456 2.827v5.898h-1.525v-9.86Z"
+                      />
+                    </svg>
+                    `,
                     );
                   } catch {}
                 }}
@@ -286,14 +288,14 @@ export function Header() {
                 {children && (
                   <div
                     className={cn(
-                      "absolute top-[48px] left-0 -mx-[calc(var(--pixel-ratio)_*_2px)] bg-[#121212] flex h-0 group-hover:h-[250px] overflow-hidden transition-all duration-300 ease-in-out border-l border-r",
+                      "absolute top-[48px] left-0 -mx-[calc(var(--pixel-ratio)_*_2px)] bg-[#fff] dark:bg-[#121212] flex h-0 group-hover:h-[250px] overflow-hidden transition-all duration-300 ease-in-out border-l border-r",
                       hidden && "hidden",
                     )}
                   >
                     <ul className="p-4 w-[200px] flex-0 space-y-4 mt-2">
                       {children.map((child) => {
                         return (
-                          <li key={child.title}>
+                          <li key={child.path}>
                             <Link
                               onClick={handleOnClick}
                               href={child.path}
@@ -338,7 +340,7 @@ export function Header() {
 
         <a
           className="text-sm font-medium pr-2 border-l-[1px] border-border pl-4 hidden md:block"
-          href="https://app.untitled.uno"
+          href="https://app.midday.ai"
         >
           Sign in
         </a>
@@ -352,7 +354,7 @@ export function Header() {
         >
           <div className="mt-4 flex justify-between p-3 px-4 relative ml-[1px]">
             <button type="button" onClick={handleToggleMenu}>
-              <span className="sr-only">Untitled Logo</span>
+              <span className="sr-only">Midday Logo</span>
               <Logo />
             </button>
 
@@ -380,7 +382,7 @@ export function Header() {
               className="px-3 pt-8 text-xl text-[#878787] space-y-8 mb-8 overflow-auto"
               variants={listVariant}
             >
-              {links.map(({ path, title, children }) => {
+              {links.map(({ path, title, children }, index) => {
                 const isActive =
                   path === "/updates"
                     ? pathname.includes("updates")
@@ -401,18 +403,16 @@ export function Header() {
                 }
 
                 return (
-                  <li key={path}>
+                  <li key={title}>
                     <Accordion collapsible type="single">
                       <AccordionItem value="item-1" className="border-none">
                         <AccordionTrigger className="flex items-center justify-between w-full font-normal p-0 hover:no-underline">
-                          <span className="text-[#878787] text-xl">
-                            {title}
-                          </span>
+                          <span className="text-[#878787]">{title}</span>
                         </AccordionTrigger>
 
                         {children && (
                           <AccordionContent className="text-xl">
-                            <ul className="space-y-8 ml-4 mt-6" key={path}>
+                            <ul className="space-y-8 ml-4 mt-6">
                               {children.map((child) => {
                                 return (
                                   <li key={child.path}>
